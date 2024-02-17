@@ -12,3 +12,9 @@ if __name__ == "__main__":
     main()
 
 # Ghbdtn, rfr ltkf? Xnj ltkftim?
+# Lf, pfdnhf z ghbqle r nt,t. Ns ,eltim ljvf? Z - lf!
+# <skj bkb yt ,skj?
+# "nb[ ,fhfyjd pltcm ghjcnj lj[ez b ,jkmit...
+# Leitue, ns
+
+# lzlz ns t,kfy yf[eq rnj nt,t hekenm yfexbk?
