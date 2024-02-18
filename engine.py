@@ -16,11 +16,23 @@ class Convertator:
             raise ValueError(f'Словаря {dict} не существует!')
 
     def activate_convert(self):
-        pyautogui.hotkey('command', 'c')
-        self.__string = pyperclip.paste()
-        converted = self.convert(self.__string)
-        pyperclip.copy(converted)
-        pyautogui.hotkey('command', 'v')
+        try:
+            buffer = pyperclip.paste()
+            pyautogui.hotkey('command', 'c')
+            self.__string = pyperclip.paste()
+            converted = self.convert(self.__string)
+            pyperclip.copy(converted)
+            pyautogui.hotkey('command', 'v')
+            pyperclip.copy(buffer)
+        except TypeError:
+            pass
+
+    def clear_buffer(self):
+        a = pyperclip.paste()
+        print(f"Was: '{a}'")
+        pyperclip.copy('')
+        a = pyperclip.paste()
+        print(f"Now: '{a}'")
 
     @staticmethod
     def convert(text):
@@ -30,10 +42,6 @@ class Convertator:
                 try:
                     if text[letter] in ',.' and text[letter + 1] == ' ':
                         converted += text[letter]
-                    # elif f"{text[letter]}{text[letter + 1]}{text[letter + 2]}" == '...':
-                    #     raise ValueError
-                    # elif f"{text[letter]}{text[letter + 1]}" == '..':
-                    #     raise ValueError
                     else:
                         converted += Convertator.__DICTIONARY[text[letter]]
                 except IndexError:
